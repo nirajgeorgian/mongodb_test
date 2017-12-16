@@ -16,8 +16,15 @@ before((done) => {
 // hooks in testing
 beforeEach((done) => {
   // clear out all the database
-  mongoose.connection.collections.users.drop(() => {
-    // Ready to run the next time
-    done()
+  const { users, comments, blogposts } = mongoose.connection.collections
+  users.drop(() => {
+    comments.drop(() => {
+      blogposts.drop(() => {
+        done()
+      })
+    })
   })
 })
+
+// Middleware are pre and post hooks
+// pre <= Event => post
