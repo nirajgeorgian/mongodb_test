@@ -1,0 +1,26 @@
+create
+  => db.createCollection()
+  => db.createView()
+
+collMod
+  => db.getCollection()
+  => db.getCollectionInfos()
+  => db.getCollectionNames()
+
+find
+  => db.collection.aggregate()
+  => db.collection.find()
+  => db.collection.findOne()
+  => db.collection.count()
+  => db.collection.distinct()
+
+cappedCollection fixed collection creation and works in circular linkedlist
+cappedCollection requires you to specify the fixed amount of size
+  => db.createCollection("log", {
+    capped: true,
+    size: 1024, // 1MB
+    max: 3000 // Maximum of 3000 records to be inserted
+  })
+
+Find cappedCOllection with sorting
+  => db.cappedCollection().find({}).sort({ $natural: -1 })
