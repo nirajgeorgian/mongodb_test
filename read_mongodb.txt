@@ -1,3 +1,11 @@
+Mongodb and Relational Database
+RDBMS             MongoDB
+Database          Databse
+Table             Collection
+Row               Document
+Index             Index
+JOIN              Embedded Document or Reference
+
 create
   => db.createCollection()
   => db.createView()
